@@ -1,12 +1,15 @@
 return {
 	{
 		"williamboman/mason.nvim",
+        lazy = false,
 		config = function()
-			require("mason").setup()
+			require("mason").setup(
+            )
 		end,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
+        lazy = false,
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
@@ -46,6 +49,10 @@ return {
 			-- LSP settings for FORTRAN
 			lspconfig.fortls.setup({
                 capabilites = capabilities,
+                filetypes = { "fortran","f90"},
+                root_dir = function ()
+                    return vim.loop.cwd()
+                end
 			})
             --
             require('lspconfig.ui.windows').default_options = {
