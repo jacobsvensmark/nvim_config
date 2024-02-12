@@ -41,6 +41,7 @@ return {
 				-- Disables annoying message that pops up for some reason
 				settings = { Lua = { workspace = { checkThirdParty = "Disable" } } },
                 capabilites = capabilities,
+                diagnostics = { disable = { 'missing-fields' } }
 			})
 			-- LSP settings for python
 			lspconfig.jedi_language_server.setup({
